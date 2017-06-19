@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean isDescarted;
         int value;
 
+
         public Card(Card _left, Card _right, int _value){
             left = _left;
             right = _right;
