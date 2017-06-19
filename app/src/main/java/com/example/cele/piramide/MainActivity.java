@@ -1,5 +1,6 @@
 package com.example.cele.piramide;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,17 +8,18 @@ import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class MainActivity extends AppCompatActivity {
     int sum = 0;
     Card selected;
-    Button button;
+    ImageButton button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = (Button)findViewById(R.id.button1);
+        button = (ImageButton)findViewById(R.id.button1);
         button.setOnTouchListener(new Card(13));
        // button.setOnDragListener(new CardD(13));
     }
