@@ -215,19 +215,37 @@
         android:layout_weight="1"
         android:weightSum="7"
         android:gravity="center">
-        <ImageButton
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
             android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:weightSum="6"
+            >
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
 
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="6"
+            android:weightSum="1">
+
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
