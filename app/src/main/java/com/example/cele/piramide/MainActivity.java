@@ -7,23 +7,41 @@ import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    int sum = 0;
+    List<Integer> cards;
+    int sum = 0, n_palos =2;
     Card selected;
     ImageButton button;
+    ImageButton buttons[] = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = (ImageButton)findViewById(R.id.button1);
-        button.setOnTouchListener(new Card(13));
+        buttons = new ImageButton[28]; //28 cartas
+        cards = new ArrayList<>(13*2*n_palos);
+        for(int i=1;i<=13*n_palos;i++) {cards.add(i);cards.add(i);}
+        Collections.shuffle(cards); //Desordenar cartas
+
+        for(int i=1;i<=28;i++){
+            String str = "button"+i;
+            int cardval = cards.remove(0);
+            int val= (cardval-1)%13;
+            int resID = getResources().getIdentifier(str,"id",getPackageName());
+            buttons[i] = (ImageButton)findViewById(resID);
+            buttons[i].setOnClickListener(new Card(cardval));
+            buttons[i].setTag(val+1);
+        }
+
        // button.setOnDragListener(new CardD(13));
     }
-    class Card implements View.OnTouchListener {
+    class Card implements View.OnClickListener {
         private Card left;
         private Card right;
         public boolean isFree;
@@ -52,22 +70,20 @@ public class MainActivity extends AppCompatActivity {
             //eliminar del layout
             isDescarted = true;
         }
-        public boolean onTouch(View view,  MotionEvent motionEvent) {
+        public void onClick(View view) {
             if(isFree() && !isDescarted){
                 if(sum + value == 13){
                     if(selected == null)
                         selected.descart();
                     descart();
                     sum = 0;
-                    Log.i("Click13", "Click13");
+               //     Log.i("Click13", "Click13");
                 }
                 else {
                     sum = value;
                     selected = this;
                 }
-                return true;
             }
-            return false;
         }
     }
     class CardD implements View.OnDragListener   {
