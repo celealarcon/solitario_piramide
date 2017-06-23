@@ -284,7 +284,8 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/maso"/>
+                android:id="@+id/maso"
+                android:src="@drawable/blanco" />
 
             <ImageButton
                 android:scaleType="centerInside"
@@ -292,6 +293,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:src="@drawable/blanco"
                 android:id="@+id/card"/>
         </LinearLayout>
 
