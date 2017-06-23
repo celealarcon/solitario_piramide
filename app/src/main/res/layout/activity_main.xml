@@ -17,10 +17,12 @@
         android:layout_weight="1"
         android:weightSum="7">
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/button1"/>
+            android:id="@+id/button00"/>
     </LinearLayout>
     <LinearLayout
         android:layout_height="0dp"
@@ -30,101 +32,19 @@
         android:weightSum="7"
         android:gravity="center">
         <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button2"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button3"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:weightSum="7"
-        android:gravity="center">
-
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button4"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button5"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button6"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:weightSum="7"
-        android:gravity="center">
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button7"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button8"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button9"/>
-        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/button10"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:weightSum="7"
-        android:gravity="center">
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/button11"/>
-        <Button
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button12"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button13"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button14"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button15"/>
-
     </LinearLayout>
     <LinearLayout
         android:layout_height="0dp"
@@ -133,36 +53,28 @@
         android:layout_weight="1"
         android:weightSum="7"
         android:gravity="center">
+
         <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button16"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button17"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button18"/>
-        <ImageButton
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/button19"/>
-        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/button20"/>
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/button21"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button22"/>
     </LinearLayout>
     <LinearLayout
         android:layout_height="0dp"
@@ -172,40 +84,184 @@
         android:weightSum="7"
         android:gravity="center">
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/button22"/>
+            android:id="@+id/button30"/>
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/button23"/>
+            android:id="@+id/button31"/>
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/button24"/>
+            android:id="@+id/button32"/>
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/button25"/>
+            android:id="@+id/button33"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="7"
+        android:gravity="center">
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/button26"/>
+            android:id="@+id/button40"/>
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/button27"/>
+            android:id="@+id/button41"/>
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/button28"/>
+            android:id="@+id/button42"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button43"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button44"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="7"
+        android:gravity="center">
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button50"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button51"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button52"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button53"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button54"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button55"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="7"
+        android:gravity="center">
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button60"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button61"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button62"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button63"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button64"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button65"/>
+        <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button66"/>
 
     </LinearLayout>
     <LinearLayout
@@ -223,12 +279,16 @@
             android:weightSum="6"
             >
             <ImageButton
+                android:scaleType="centerInside"
+                android:background="@color/blanco"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/maso"/>
 
             <ImageButton
+                android:scaleType="centerInside"
+                android:background="@color/blanco"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -236,6 +296,8 @@
         </LinearLayout>
 
         <ImageButton
+            android:scaleType="centerInside"
+            android:background="@color/blanco"
             android:layout_weight="6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
