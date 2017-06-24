@@ -17,13 +17,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     List<Integer> cards;
-    int sum = 0, n_palos =2;
+    List<Stack> stack;
+    int sum = 0, n_palos =4;
     Card selected;
-    ImageButton deckbutton;
     Card deck;
+
+    ImageButton deckbutton;
     ImageButton carddeck;
     ImageButton descarts;
-    int valuecarddeck = 0;
     ImageButton buttons[][] = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,29 +32,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         buttons = new ImageButton[7][7]; //28 cartas
         cards = new ArrayList<>(13*2*n_palos);
-
+        stack = new ArrayList<>(200);
+        deck = new Card(0);
         deckbutton = (ImageButton)findViewById(R.id.maso);
         carddeck = (ImageButton)findViewById(R.id.card);
         descarts = (ImageButton)findViewById(R.id.descarte);
         deckbutton.setOnClickListener(new clickCartaMaso());
-        deck = new Card(valuecarddeck);
+        descarts.setOnClickListener(new clickDescart());
         carddeck.setOnClickListener(deck);
         carddeck.setTag("free");
 
-        for(int i=1;i<=13*n_palos;i++) {cards.add(i);cards.add(i);}
+        for(int i=1;i<=13*n_palos;i++) {cards.add(i);}
         Collections.shuffle(cards); //Desordenar cartas
-        cards.add(99);
-        Card aux1, aux2;
+
         for(int i=0;i<7;i++){
             for(int j=0;j<i+1;j++){
-                int aux = i+1;
                 String str = "button"+i+""+j;
                 int cardval = cards.remove(0);
-                int val= (cardval-1)%13;
                 int resID = getResources().getIdentifier(str,"id",getPackageName());
                 int imgID = getResources().getIdentifier("c"+cardval,"drawable",getPackageName());
                 buttons[i][j] = (ImageButton)findViewById(resID);
-                buttons[i][j].setOnClickListener(new Card(val+1,i,j));
+                buttons[i][j].setOnClickListener(new Card(cardval,i,j));
                 buttons[i][j].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), imgID));
                 if(i==6)buttons[i][j].setTag("free");
                 else  buttons[i][j].setTag("block");
@@ -64,32 +63,37 @@ public class MainActivity extends AppCompatActivity {
         public boolean isDescarted;
         int value, x ,y;
         boolean isMaso;
-
+        int carta;
         public Card(int _value, int _x, int _y){
             x = _x;
             y = _y;
-            value = _value;
+
+            carta = _value;
+            value = (carta-1)%13 +1;
             isDescarted = false;
             isMaso = false;
         }
         public Card(int _value){
-            value = _value;
+            carta = _value;
+            value = (carta-1)%13 +1;
             isMaso = true;
             isDescarted = false;
         }
         public void setValue(int _value){
-            value = _value;
+            carta = _value;
+            value = (carta-1)%13 +1;
         }
         public void descart(){
-            Log.i("descart",""+value);
             if(isMaso) {
-                Log.i("descartMASO",""+value);
-                valuecarddeck = 0;
-                carddeck.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.blanco));
+
+                stack.add(new Stack(deck.carta));
+                deck.setValue(cards.remove(cards.size()-1));
+                int imgID = getResources().getIdentifier("c" + deck.carta, "drawable", getPackageName());
+                carddeck.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), imgID));
                 return;
             }
+            stack.add(new Stack(x,y,carta));
             buttons[x][y].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.blanco));
-            isDescarted = true;
             buttons[x][y].setTag("descart");
         }
         private boolean isFree(){
@@ -98,13 +102,12 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         public void onClick(View view) {
-            Log.i("click", ""+value);
-            if(isFree() && !isDescarted){
-                Log.i("clickYES", ""+value);
-                if(sum + value == 13){
-                    Log.i("click13", ""+value);
-                    if(selected != null)
-                        selected.descart();
+            if(isFree()){
+                if(value == 13 || sum+value == 13){
+                    if(selected != null && sum != 0)
+                        if(sum + value == 13){
+                            selected.descart();
+                        }
                     descart();
                     sum = 0;
                 }
@@ -114,37 +117,108 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-
             for(int i=0;i<7;i++)
                 for(int j=0;j<i+1;j++)
                     if(buttons[i][j].getTag().equals("block")){
-                        if(buttons[i+1][j].getTag().equals("descart") && buttons[i+1][j+1].getTag().equals("descart")) {
-                            buttons[i][j].setTag("free");
-                            Log.i("free","button"+i+""+j);
+                        if(i<6){
+                            if(buttons[i+1][j].getTag().equals("descart") && buttons[i+1][j+1].getTag().equals("descart")) {
+                                buttons[i][j].setTag("free");
+                            }
                         }
+                        else buttons[i][j].setTag("free");
                     }
-
         }
     }
+    class Stack {
+        int x, y, val, carta;
+        int imgID;
+        boolean isMaso;
+        public Stack(int _x, int _y, int _carta){
+            x = _x;
+            y = _y;
+            carta = _carta;
+            val = (_carta-1)%13 +1;
+            if(carta<=52 && carta>0){
+                imgID = getResources().getIdentifier("c" + carta, "drawable", getPackageName());
+            }
+            isMaso = false;
+        }
+        public Stack(int _carta){
+            isMaso = true;
+            carta = _carta;
+            val = (_carta-1)%13 +1;
+            if(carta<=52 && carta>0) {
+                imgID = getResources().getIdentifier("c" + carta, "drawable", getPackageName());
+            }
+        }
+        public int value(){
+            return val;
+        }
+        public int card(){
+            return carta;
+        }
+        public void reapear(){
+            if(isMaso) {
+                // Si la carta reaparece en el maso
+                // //Si es devolver arriba una carta
+                if(carta  == 99){
+                    cards.add(0,deck.carta);
+                    deck.setValue(cards.remove(cards.size()-1));
+                    imgID = getResources().getIdentifier("c" + deck.value, "drawable", getPackageName());
+                    carddeck.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), imgID));
+                    return;
+                }
+                // Si tiene algun valor
+                cards.add(deck.carta);
+                deck.setValue(carta);
+                //imgID = getResources().getIdentifier("c" + carta, "drawable", getPackageName());
+                carddeck.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), imgID));
+                return;
+            }
 
+            // cuando es una carta de la piramide
+            buttons[x][y].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), imgID));
+            buttons[x][y].setTag("free");
+            if(y>0){
+                buttons[x][y-1].setTag("block");
+                if(x>0) buttons[x-1][y-1].setTag("block");
+            }
+        }
+    }
     class clickCartaMaso implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            if(valuecarddeck != 0) cards.add(valuecarddeck);
-            valuecarddeck = cards.remove(0);
-            if(valuecarddeck == 99){
+            selected = null;
+            sum=0;
+
+            cards.add(deck.carta);
+            if(deck.value != 0) {
+                stack.add(new Stack(99));
+            }
+            deck.setValue(cards.remove(0));
+            if(deck.value == 0){
                 carddeck.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.blanco));
-                deck.setValue(0);
             }
             else {
-                int imgID = getResources().getIdentifier("c" + valuecarddeck, "drawable", getPackageName());
+                int imgID = getResources().getIdentifier("c" + deck.carta, "drawable", getPackageName());
                 carddeck.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), imgID));
-                deck.setValue((valuecarddeck-1)%13 +1);
             }
         }
     }
+    class clickDescart implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            if(!stack.isEmpty()){
+                Stack s = stack.remove(stack.size()-1);
+                s.reapear();
+                if(s.value() < 13 && s.card()!=99 && !stack.isEmpty()) {
+                    s = stack.remove(stack.size()-1);
+                    s.reapear();
+                }
+            }
 
-
+        }
+    }
     class CardD implements View.OnDragListener   {
         public boolean onDrag(View view, DragEvent drag) {
             return false;
