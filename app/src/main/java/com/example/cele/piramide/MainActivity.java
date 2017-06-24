@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            // cuando es una carta de la piramide.
+            // cuando es una carta de la piramide
             buttons[x][y].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), imgID));
             buttons[x][y].setTag("free");
             if(y>0){
