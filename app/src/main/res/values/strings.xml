@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Piramide</string>
+    <string name="game_name">Solitario\nPirámide</string>
+    <string name="description">El objetivo del juego es retirar todas las cartas de la pirámide. Las cartas se retiran en pares que
+sumen 13, donde los ases valen 1, las sotas valen 11, las reinas valen 12 y los reyes valen 13. Por
+su valor, los reyes pueden ser retirados por sí solos.</string>
+    <string name="rule1">El jugador puede mover una carta desde el mazo a la pila</string>
+    <string name="rule2">El jugador puede mover la carta superior de la pila encima de una carta destapada de la
+    pirámide para así eliminar ambas cartas si la suma de ellas es 13</string>
+    <string name="rule3">Si hay una carta en la pirámide que está parcialmente tapada en una esquina por otra carta,
+    y la suma de estas dos cartas es 13, entonces es posible eliminar ambas cartas</string>
+    <string name="rule4">El jugador puede mover una carta destapada de la pirámide encima de otra carta destapada
+    de la pirámide para así eliminar ambas cartas si la suma de ellas es 13</string>
+    <string name="rule5">Si las cartas del mazo se acaban, es posible retornar las cartas de la pila al mazo, en su mismo
+    orden, y continuar el juego.</string>
+    <string name="rule6">Los reyes valen 13, por lo se permite retirar un rey destapado en la pirámide ó en la pila.</string>
+    <string name="rule7">El jugador gana el solitario si consigue retirar todas las cartas de las pirámide. Por otro lado,
+el jugador pierde el solitario si ya no es posible retirar más cartas de la pirámide no importa
+cuántas veces retorne las cartas de la pila al mazo.</string>
+
+
+
+
+
+
+
+
+
+
 </resources>
