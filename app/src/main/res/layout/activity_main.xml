@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:weightSum="8"
+    android:weightSum="9"
     android:layout_marginTop="0pt">
     <LinearLayout
         android:layout_height="0dp"
@@ -302,6 +302,8 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/blanco"
                 android:id="@+id/card"/>
+
+
         </LinearLayout>
 
         <ImageButton
@@ -312,5 +314,17 @@
             android:layout_height="match_parent"
             android:id="@+id/descarte"/>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10pt"
+        android:layout_weight="1">
+        <Chronometer
+            android:id="@+id/chrono"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>

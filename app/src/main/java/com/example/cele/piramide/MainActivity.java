@@ -1,5 +1,6 @@
 package com.example.cele.piramide;
 
+import android.content.Intent;
 import android.media.Image;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,9 @@ import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,11 +33,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        int color_deck = intent.getIntExtra("color", -1);
+        Chronometer chrono = (Chronometer)findViewById(R.id.chrono);
+        chrono.start();
+        chrono.setFormat("Tiempo transcurrido: %s");
         buttons = new ImageButton[7][7]; //28 cartas
         cards = new ArrayList<>(13*2*n_palos);
         stack = new ArrayList<>(200);
         deck = new Card(0);
         deckbutton = (ImageButton)findViewById(R.id.maso);
+        if(color_deck == 1) {
+            deckbutton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.b1fv));
+        } else if (color_deck == 0){
+            deckbutton.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.b2fv));
+        }
         carddeck = (ImageButton)findViewById(R.id.card);
         descarts = (ImageButton)findViewById(R.id.descarte);
         deckbutton.setOnClickListener(new clickCartaMaso());
@@ -59,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
+
+
     class Card implements View.OnClickListener {
         public boolean isDescarted;
         int value, x ,y;
