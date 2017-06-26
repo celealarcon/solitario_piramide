@@ -102,7 +102,10 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         public void onClick(View view) {
+            Log.i("click",cards.toString());
+            Log.i("clicl", "sum="+sum+"-value:"+value+"_"+buttons[x][y].getTag().toString());
             if(isFree()){
+                Log.i("free","yes");
                 if(value == 13 || sum+value == 13){
                     if(selected != null && sum != 0)
                         if(sum + value == 13){
@@ -116,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                     selected = this;
                 }
             }
+            Log.i("free","no");
 
             for(int i=0;i<7;i++)
                 for(int j=0;j<i+1;j++)
